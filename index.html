@@ -1,14 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>Chandana High School And College</title>
 <meta name="description" content="Description">
 <meta name="keywords" content="Keyword1, Keyword2">
-<link rel="shortcut icon" href="a.png" type="image/x-icon">
+<link rel="icon" href="a.png" type="image/x-icon">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    flex-direction: column;
+  }
+
+  .spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(0,136,204,0.2);
+    border-top-color: #0088cc;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  .loading-text {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #0088cc;
+    font-weight: bold;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+  }
+
+  .email-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 9999;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .email-btn img {
+    width: 35px;
+    height: 35px;
+    pointer-events: none;
+  }
+
+  .email-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  }
+</style>
 </head>
-<frameset rows="100%,0" border="0">
-<frame src="https://www.neticms.com/chandanahighschoolandcollege" frameborder="0">
-<frame frameborder="0">
-</frameset>
+<body>
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <div class="loading-text">Loading...</div>
+</div>
+
+<iframe src="https://www.neticms.com/chandanahighschoolandcollege" id="mainIframe"></iframe>
+
+<div class="email-btn" id="emailBtn">
+  <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email Icon">
+</div>
+
+<script>
+  const emailBtn = document.getElementById('emailBtn');
+  const iframe = document.getElementById('mainIframe');
+  const overlay = document.getElementById('loadingOverlay');
+
+  iframe.addEventListener('load', () => {
+    overlay.style.display = 'none';
+    iframe.style.display = 'block';
+  });
+
+  emailBtn.addEventListener('click', () => {
+    window.location.href = 'mailto:foysalahmmedsadin@gmail.com';
+  });
+</script>
+</body>
 </html>

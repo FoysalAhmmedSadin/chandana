@@ -3,86 +3,81 @@
 <head>
 <meta charset="utf-8">
 <title>Chandana High School And College</title>
-<meta name="description" content="Description">
-<meta name="keywords" content="Keyword1, Keyword2">
 <link rel="icon" href="a.png" type="image/x-icon">
 <style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-  }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  flex-direction: column;
+}
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid rgba(0,136,204,0.2);
+  border-top-color: #00ff88;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+.loading-text {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #00ff88;
+  font-weight: bold;
+}
+@keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
 
-  iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
+.email-btn {
+  position: fixed;
+  bottom: 100px;
+  right: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 9999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: floatModern 4s ease-in-out infinite;
+  background: linear-gradient(135deg, #37aee2, #00ff88);
+  box-shadow: 0 0 25px rgba(55,174,226,0.6);
+}
 
-  .loading-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 99999;
-    flex-direction: column;
-  }
+.email-btn img {
+  pointer-events: none;
+}
 
-  .spinner {
-    width: 60px;
-    height: 60px;
-    border: 6px solid rgba(0,136,204,0.2);
-    border-top-color: #0088cc;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
+.email-btn:hover {
+  transform: scale(1.25);
+  box-shadow: 0 0 40px rgba(55,174,226,0.8);
+}
 
-  .loading-text {
-    margin-top: 15px;
-    font-size: 16px;
-    color: #0088cc;
-    font-weight: bold;
-  }
-
-  @keyframes spin {
-    0% { transform: rotate(0deg);}
-    100% { transform: rotate(360deg);}
-  }
-
-  .email-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 70px;
-    height: 70px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 9999;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  }
-
-  .email-btn img {
-    width: 35px;
-    height: 35px;
-    pointer-events: none;
-  }
-
-  .email-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.35);
-  }
+@keyframes floatModern {
+  0%   { transform: translateY(0px) rotate(0deg); box-shadow: 0 0 25px rgba(55,174,226,0.6);}
+  25%  { transform: translateY(-6px) rotate(-1deg); box-shadow: 0 0 30px rgba(55,174,226,0.65);}
+  50%  { transform: translateY(0px) rotate(1deg); box-shadow: 0 0 35px rgba(55,174,226,0.7);}
+  75%  { transform: translateY(-6px) rotate(-1deg); box-shadow: 0 0 30px rgba(55,174,226,0.65);}
+  100% { transform: translateY(0px) rotate(0deg); box-shadow: 0 0 25px rgba(55,174,226,0.6);}
+}
 </style>
 </head>
 <body>
@@ -98,18 +93,29 @@
 </div>
 
 <script>
-  const emailBtn = document.getElementById('emailBtn');
-  const iframe = document.getElementById('mainIframe');
-  const overlay = document.getElementById('loadingOverlay');
+const emailBtn = document.getElementById('emailBtn');
+const iframe = document.getElementById('mainIframe');
+const overlay = document.getElementById('loadingOverlay');
 
-  iframe.addEventListener('load', () => {
-    overlay.style.display = 'none';
-    iframe.style.display = 'block';
-  });
+function setButtonSize() {
+  const dpr = window.devicePixelRatio || 1;
+  const size = Math.round(80 * dpr); 
+  emailBtn.style.width = size + 'px';
+  emailBtn.style.height = size + 'px';
+  emailBtn.querySelector('img').style.width = Math.round(size * 0.55) + 'px';
+  emailBtn.querySelector('img').style.height = Math.round(size * 0.55) + 'px';
+}
+setButtonSize();
+window.addEventListener('resize', setButtonSize);
 
-  emailBtn.addEventListener('click', () => {
-    window.location.href = 'mailto:foysalahmmedsadin@gmail.com';
-  });
+iframe.addEventListener('load', () => {
+  overlay.style.display = 'none';
+  iframe.style.display = 'block';
+});
+
+emailBtn.addEventListener('click', () => {
+  window.location.href = 'mailto:foysalahmmedsadin@gmail.com';
+});
 </script>
 </body>
 </html>

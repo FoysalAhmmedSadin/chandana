@@ -2,8 +2,30 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Chandana High School And College</title>
+<title>Chandana High School & College</title>
 <link rel="icon" href="a.png" type="image/x-icon">
+<meta name="description" content="Official website of Chandana High School & College, Gazipur, Dhaka, Bangladesh. Education for School, College, and University students at Chandana Chowrasta.">
+  <meta name="keywords" content="Gazipur, Dhaka, Bangladesh, School, College, University, Chandana Chowrasta">
+<meta name="description" content="Official website of Chandana High School And College, Gazipur, Dhaka, Bangladesh. Education for School, College, and University students at Chandana Chowrasta.">
+<meta name="description" content="bhawal badre alam govt college">
+<meta name="description" content="চান্দনা উচ্চ বিদ্যালয় ও কলেজ">
+  <!-- Favicon -->
+  <link rel="icon" href="a.png" type="image/x-icon">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.neticms.com/chandanahighschoolandcollege">
+  <meta property="og:title" content="Chandana High School & College">
+  <meta property="og:description" content="Official website of Chandana High School & College, Gazipur, Dhaka, Bangladesh. Education for School, College, and University students at Chandana Chowrasta.">
+  <meta property="og:image" content="https://www.neticms.com/path-to-your-logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.neticms.com/chandanahighschoolandcollege">
+  <meta property="twitter:title" content="Chandana High School & College">
+  <meta property="twitter:description" content="Official website of Chandana High School & College, Gazipur, Dhaka, Bangladesh. Education for School, College, and University students at Chandana Chowrasta.">
+  <meta property="twitter:image" content="https://www.neticms.com/path-to-your-logo.png">
+</head>
 <style>
 html, body {
   margin: 0;
@@ -12,11 +34,13 @@ html, body {
   overflow: hidden;
   font-family: Arial, sans-serif;
 }
+
 iframe {
   width: 100%;
   height: 100%;
   border: none;
 }
+
 .loading-overlay {
   position: fixed;
   top: 0;
@@ -30,6 +54,7 @@ iframe {
   z-index: 99999;
   flex-direction: column;
 }
+
 .spinner {
   width: 60px;
   height: 60px;
@@ -38,14 +63,20 @@ iframe {
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
+
 .loading-text {
   margin-top: 15px;
   font-size: 16px;
   color: #00ff88;
   font-weight: bold;
 }
-@keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
 
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+/* Mail Button */
 .email-btn {
   position: fixed;
   bottom: 100px;
@@ -56,31 +87,28 @@ iframe {
   align-items: center;
   cursor: pointer;
   z-index: 9999;
+  width: 80px;
+  height: 80px;
+  background: #00ff88; /* Solid background */
+  box-shadow: 0 0 20px rgba(0,255,136,0.6);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: floatModern 4s ease-in-out infinite;
-  background: linear-gradient(135deg, #37aee2, #00ff88);
-  box-shadow: 0 0 25px rgba(55,174,226,0.6);
 }
 
 .email-btn img {
+  width: 35px; /* Icon size */
+  height: 35px;
   pointer-events: none;
 }
 
 .email-btn:hover {
-  transform: scale(1.25);
-  box-shadow: 0 0 40px rgba(55,174,226,0.8);
-}
-
-@keyframes floatModern {
-  0%   { transform: translateY(0px) rotate(0deg); box-shadow: 0 0 25px rgba(55,174,226,0.6);}
-  25%  { transform: translateY(-6px) rotate(-1deg); box-shadow: 0 0 30px rgba(55,174,226,0.65);}
-  50%  { transform: translateY(0px) rotate(1deg); box-shadow: 0 0 35px rgba(55,174,226,0.7);}
-  75%  { transform: translateY(-6px) rotate(-1deg); box-shadow: 0 0 30px rgba(55,174,226,0.65);}
-  100% { transform: translateY(0px) rotate(0deg); box-shadow: 0 0 25px rgba(55,174,226,0.6);}
+  transform: scale(1.2);
+  box-shadow: 0 0 30px rgba(0,255,136,0.8);
 }
 </style>
 </head>
+
 <body>
+
 <div class="loading-overlay" id="loadingOverlay">
   <div class="spinner"></div>
   <div class="loading-text">Loading...</div>
@@ -89,7 +117,7 @@ iframe {
 <iframe src="https://www.neticms.com/chandanahighschoolandcollege" id="mainIframe"></iframe>
 
 <div class="email-btn" id="emailBtn">
-  <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email Icon">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email Icon">
 </div>
 
 <script>
@@ -97,25 +125,15 @@ const emailBtn = document.getElementById('emailBtn');
 const iframe = document.getElementById('mainIframe');
 const overlay = document.getElementById('loadingOverlay');
 
-function setButtonSize() {
-  const dpr = window.devicePixelRatio || 1;
-  const size = Math.round(80 * dpr); 
-  emailBtn.style.width = size + 'px';
-  emailBtn.style.height = size + 'px';
-  emailBtn.querySelector('img').style.width = Math.round(size * 0.55) + 'px';
-  emailBtn.querySelector('img').style.height = Math.round(size * 0.55) + 'px';
-}
-setButtonSize();
-window.addEventListener('resize', setButtonSize);
-
 iframe.addEventListener('load', () => {
   overlay.style.display = 'none';
   iframe.style.display = 'block';
 });
 
 emailBtn.addEventListener('click', () => {
-  window.location.href = 'mailto:foysalahmmedsadin@gmail.com';
+  window.location.href = 'mailto:foysal24x7@gmail.com';
 });
 </script>
+
 </body>
 </html>
